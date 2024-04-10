@@ -1,0 +1,8 @@
+[
+  { "id": 1, "name": "Wheet", "image": "wheet.png" },
+  { "id": 2, "name": "Rice", "image": "rice.png" },
+  { "id": 3, "name": "Pizza", "image": "pizza.png" },
+  { "id": 4, "name": "cornfloor", "image": "cornfloor.png" },
+  { "id": 5, "name": "watermalon", "image": "watermalon.png" },
+  { "id": 6, "name": "Apple", "image": "apple.png" }
+]
