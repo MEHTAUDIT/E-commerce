@@ -17,3 +17,31 @@
   justify-content: space-between;
   margin-left: 1rem;
 }
+
+.yellow-button {
+  padding: 5px 15px;
+  background-color: var(--yellow);
+  color: var(--dark-color);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cart-item-qunatity {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.change-quentity {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: aqua;
+}
+
+.cart-item-name {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--dark-color);
+}

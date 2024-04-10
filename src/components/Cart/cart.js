@@ -1,7 +1,7 @@
 import Modal from "../Modal/modal";
 import "./cart.css";
 
-function CartItem({name,id,image}){
+function CartItem({name,id,image,quentity,incresequentity,decresequentity}){
     return (
         <div className="cart-item">
             {console.log(image)}
@@ -11,20 +11,28 @@ function CartItem({name,id,image}){
             </div>
             <div className="cart-item-info">
                 <div className="cart-item-name">{name}</div>
+                <div className="cart-item-qunatity">Quantity: {quentity}
+                    <button className="change-quentity" onClick={()=>incresequentity(id)}>+</button>
+                    <button className="change-quentity" onClick={()=>decresequentity(id)}>-</button>
+                </div>
             </div>
         </div>
     );
 }
 
-function Cart({showcart,closecart,cartitem}){
+function Cart({showcart,closecart,cartitem,incresequentity,decresequentity}){
 
     return (
     <Modal showcart={showcart} closecart={closecart}>
         <div className="cart-heading"><h2>Cart</h2></div>
         {console.log(cartitem.length)}
-        {cartitem.map((item) => (
-            <CartItem key={item.name} name={item.name} id={item.id} image={item.image}/>
-        ))}
+        {cartitem.length>0 ? cartitem.map((item) => (
+            <CartItem key={item.name} name={item.name} id={item.id} image={item.image} quentity={item.quentity} incresequentity={incresequentity} decresequentity={decresequentity}/>
+        )):"Cart is Empty"}
+
+        <div className="close-cart">
+            <button className="yellow-button" onClick={closecart}>Close</button>
+        </div>
 
     </Modal>
     );
