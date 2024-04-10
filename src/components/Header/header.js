@@ -1,5 +1,6 @@
 import "./header.css";
 import { useState } from "react";
+import Modal from "../Modal/modal";
 
 function Header() {
   const [showcart, setshowcart] = useState(false);
@@ -19,11 +20,9 @@ function Header() {
         <button className="yellow-button" onClick={opencart}>
           Cart
         </button>
-        {showcart && 
-          <div className="backdrop" onClick={closecart}>
-            <div className="modal">Hello from cart</div>
-          </div>
-        }
+
+        <Modal showcart={showcart} closecart={closecart}>Hello from Cart</Modal>
+
       </div>
     </div>
   );
