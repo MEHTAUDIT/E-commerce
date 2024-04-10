@@ -1,17 +1,7 @@
 import "./header.css";
-import { useState } from "react";
-import Modal from "../Modal/modal";
+import "../Modal/modal.css";
 
-function Header() {
-  const [showcart, setshowcart] = useState(false);
-
-  function opencart() {
-    setshowcart(true);
-  }
-
-  function closecart() {
-    setshowcart(false);
-  }
+function Header({ opencart}) {
 
   return (
     <div className="header">
@@ -20,9 +10,6 @@ function Header() {
         <button className="yellow-button" onClick={opencart}>
           Cart
         </button>
-
-        <Modal showcart={showcart} closecart={closecart}>Hello from Cart</Modal>
-
       </div>
     </div>
   );
