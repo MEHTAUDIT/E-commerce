@@ -6,6 +6,7 @@ function CartItem({name,id,image}){
         <div className="cart-item">
             {console.log(image)}
             <div className="cart-item-image">
+
                 <img src={require(`../../images/${image}`)} alt="product" />
             </div>
             <div className="cart-item-info">
