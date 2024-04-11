@@ -5,6 +5,7 @@ import Cart from "./components/Cart/cart";
 import AddProduct from "./components/Addproduct/addproduct";
 import initialproducts from "./data/MOCK_DATA.json";
 import React from "react";
+import Notify from 'notifyjs';
 
 function App() {
   const [showcart, setshowcart] = useState(false);
@@ -18,17 +19,29 @@ function App() {
 
     if(index===-1)
     {
+        new Notify('Product added to cart', {
+          body: name,
+          notifyShow: onNotifyShow
+      }).show();
       const newcartitem = [...cartitem,{name:name,id:id,image:image,quentity:1}];
       setcartitem(newcartitem);
     }
     else
     {
+      new Notify('Product quentity incrase to cart', {
+          body: name,
+          notifyShow: onNotifyShow
+      }).show();
       const newcartitem = [...cartitem];
       newcartitem[index].quentity++;
       setcartitem(newcartitem);
     }
     
   }
+
+  function onNotifyShow() {
+    console.log('Notification shown!');
+}
 
   function addproduct(name){
 
