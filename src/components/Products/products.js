@@ -1,4 +1,3 @@
-import product_data from '../../data/MOCK_DATA.json';
 import './product.css';
 import React from 'react';
 
@@ -12,11 +11,11 @@ function Product({id,image,name,addtocart}){
     );
 }
 
-function products({addtocart}){
+function products({addtocart,products}){
     return (
         <div className="products-container">
         {
-            product_data.map((product) => (
+            products.map((product) => (
                 <Product key={product.id} id={product.id} image={product.image} name={product.name} addtocart={addtocart}/>
             ))
         }

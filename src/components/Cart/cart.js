@@ -23,7 +23,7 @@ function CartItem({name,id,image,quentity,incresequentity,decresequentity}){
 function Cart({showcart,closecart,cartitem,incresequentity,decresequentity}){
 
     return (
-    <Modal showcart={showcart} closecart={closecart}>
+    <Modal show={showcart} onclose={closecart}>
         <div className="cart-heading"><h2>Cart</h2></div>
         {console.log(cartitem.length)}
         {cartitem.length>0 ? cartitem.map((item) => (

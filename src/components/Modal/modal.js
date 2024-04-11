@@ -1,12 +1,12 @@
-function Modal({showcart,closecart,children}) {
+function Modal({show,onclose,children}) {
 
-    if (!showcart) {
+    if (!show) {
         return null;
     }
 
   return (
     
-    <div className="backdrop" onClick={closecart}>
+    <div className="backdrop" onClick={onclose}>
     <div className="modal" onClick={(event)=>{event.stopPropagation()}}>{children}</div>
   </div>
       
