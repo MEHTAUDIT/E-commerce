@@ -4,6 +4,7 @@ import { useState } from "react";
 import Cart from "./components/Cart/cart";
 import AddProduct from "./components/Addproduct/addproduct";
 import initialproducts from "./data/MOCK_DATA.json";
+import React from "react";
 
 function App() {
   const [showcart, setshowcart] = useState(false);
@@ -87,13 +88,14 @@ function App() {
     console.log("decresequentity");
   }
 
+  // React Fragment <>
   return (
-    <div>
+    <> 
       <Header opencart={opencart} openaddproduct={openaddproduct}/>
       <Products addtocart={addtocart} products={products}/>
       <Cart showcart={showcart} closecart={closecart} cartitem={cartitem} addtocart={addtocart} incresequentity={incresequentity} decresequentity={decresequentity}/>
       <AddProduct showaddproduct={showaddproduct} closeaddproduct={closeaddproduct} addproduct={addproduct}/>
-    </div>
+    </>
   );
 }
 

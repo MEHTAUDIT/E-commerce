@@ -1,10 +1,10 @@
 import Modal from "../Modal/modal";
 import "./addproduct.css";
-import {useRef} from "react";
+import {useState} from "react";
 
 function AddProduct({showaddproduct,closeaddproduct,addproduct}){
 
-    const nameval = useRef();
+    const [productname, setproductname] = useState("");
 
     if(!showaddproduct){
         return null;
@@ -13,10 +13,16 @@ function AddProduct({showaddproduct,closeaddproduct,addproduct}){
     function handlesubmit(event){
         event.preventDefault();
 
-        const name=nameval.current.value;
-        addproduct(name);
+        // const name=nameval.current.value;
+        // addproduct(name);
 
+        // closeaddproduct();
+        addproduct(productname);
         closeaddproduct();
+    }
+
+    function handlechange(event){
+        setproductname(event.target.value);
     }
 
     return (
@@ -26,7 +32,8 @@ function AddProduct({showaddproduct,closeaddproduct,addproduct}){
                 <h2>Add Product</h2>
                 <form onSubmit={handlesubmit}>
                     <label htmlFor="name">Name:</label>
-                    <input type="text" id="name" name="name" placeholder="Enter Product Name" required ref={nameval}></input>
+                    {/* <input type="text" id="name" name="name" placeholder="Enter Product Name" required ref={nameval}></input> */}
+                    <input type="text" id="name" name="name" placeholder="Enter Product Name" required value={productname} onChange={handlechange}></input>
                     <button className="yellow-button" type="submit">Add</button>
                 </form>
             </div>

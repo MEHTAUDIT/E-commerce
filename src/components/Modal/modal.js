@@ -1,3 +1,5 @@
+import createPortal from "react-dom";
+//for insert into body tag
 function Modal({show,onclose,children}) {
 
     if (!show) {
@@ -6,9 +8,9 @@ function Modal({show,onclose,children}) {
 
   return (
     
-    <div className="backdrop" onClick={onclose}>
+    createPortal(<div className="backdrop" onClick={onclose}>
     <div className="modal" onClick={(event)=>{event.stopPropagation()}}>{children}</div>
-  </div>
+    </div>,document.body)
       
   );
 }
