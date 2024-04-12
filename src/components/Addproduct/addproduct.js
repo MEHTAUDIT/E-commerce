@@ -1,4 +1,4 @@
-import Modal from "../Modal/modal";
+import Modal from "../../UI/Modal/modal";
 import "./addproduct.css";
 import {useState,useContext} from "react";
 import AppContext from "../../store/app-context";

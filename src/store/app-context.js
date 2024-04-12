@@ -2,9 +2,10 @@ import { createContext } from "react";
 
 const AppContext = createContext({
     showcart: false,
-    cartitem: false,
-    showaddproduct: [],
+    cartitem: [],
+    showaddproduct: false,
     products: [],
+    loadding: false,
     addtocart: () => {},
     addproduct: () => {},
     opencart: () => {},

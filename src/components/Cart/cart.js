@@ -1,4 +1,4 @@
-import Modal from "../Modal/modal";
+import Modal from "../../UI/Modal/modal";
 import "./cart.css";
 import React,{useContext} from "react";
 import AppContext from "../../store/app-context";

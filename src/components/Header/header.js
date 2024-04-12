@@ -1,5 +1,5 @@
 import "./header.css";
-import "../Modal/modal.css";
+import "../../UI/Modal/modal.css";
 import React,{useContext} from "react";
 import AppContext from "../../store/app-context";
 
