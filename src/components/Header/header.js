@@ -1,7 +1,11 @@
 import "./header.css";
 import "../Modal/modal.css";
+import React,{useContext} from "react";
+import AppContext from "../../store/app-context";
 
-function Header({ opencart,openaddproduct}) {
+function Header() {
+
+  const {opencart,openaddproduct}=useContext(AppContext);
 
   return (
     <div className="header">

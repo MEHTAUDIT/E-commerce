@@ -1,11 +1,13 @@
 import Modal from "../Modal/modal";
 import "./addproduct.css";
-import {useState} from "react";
+import {useState,useContext} from "react";
+import AppContext from "../../store/app-context";
 
-function AddProduct({showaddproduct,closeaddproduct,addproduct}){
+function AddProduct(){
 
+    const {showaddproduct,closeaddproduct,addproduct}=useContext(AppContext);
     const [productname, setproductname] = useState("");
-
+    
     if(!showaddproduct){
         return null;
     }

@@ -1,7 +1,10 @@
 import './product.css';
-import React from 'react';
+import React,{useContext} from 'react';
+import AppContext from '../../store/app-context';
 
-function Product({id,image,name,addtocart}){
+function Product({id,image,name}){
+    const {addtocart}=useContext(AppContext);
+    
     return (
         <div className="product-card">
             <img src={require(`../../images/${image}`)} alt="product" />
@@ -11,16 +14,18 @@ function Product({id,image,name,addtocart}){
     );
 }
 
-function products({addtocart,products}){
+function Products(){
+
+    const {products}=useContext(AppContext);
     return (
         <div className="products-container">
         {
             products.map((product) => (
-                <Product key={product.id} id={product.id} image={product.image} name={product.name} addtocart={addtocart}/>
+                <Product key={product.id} id={product.id} image={product.image} name={product.name} />
             ))
         }
         </div>
     );
 }
 
-export default products;
+export default Products;

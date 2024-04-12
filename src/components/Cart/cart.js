@@ -1,7 +1,12 @@
 import Modal from "../Modal/modal";
 import "./cart.css";
+import React,{useContext} from "react";
+import AppContext from "../../store/app-context";
 
-function CartItem({name,id,image,quentity,incresequentity,decresequentity}){
+function CartItem({name,id,image,quentity}){
+
+    const {incresequentity,decresequentity}=useContext(AppContext);
+    
     return (
         <div className="cart-item">
             {console.log(image)}
@@ -20,14 +25,15 @@ function CartItem({name,id,image,quentity,incresequentity,decresequentity}){
     );
 }
 
-function Cart({showcart,closecart,cartitem,incresequentity,decresequentity}){
+function Cart(){
 
+    const {cartitem,closecart,showcart}=useContext(AppContext);
     return (
     <Modal show={showcart} onclose={closecart}>
         <div className="cart-heading"><h2>Cart</h2></div>
         {console.log(cartitem.length)}
         {cartitem.length>0 ? cartitem.map((item) => (
-            <CartItem key={item.name} name={item.name} id={item.id} image={item.image} quentity={item.quentity} incresequentity={incresequentity} decresequentity={decresequentity}/>
+            <CartItem key={item.name} name={item.name} id={item.id} image={item.image} quentity={item.quentity}/>
         )):"Cart is Empty"}
 
         <div className="close-cart">
