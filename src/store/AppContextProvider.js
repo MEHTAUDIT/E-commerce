@@ -43,7 +43,7 @@ function AppContextProvider({children}){
 
   function addproduct(name){
 
-    const check = products.find((product)=>product.name===name);
+    const check = [Object.keys(products).find((product)=>product.name===name)];
     console.log(check);
 
     const newproduct = {
