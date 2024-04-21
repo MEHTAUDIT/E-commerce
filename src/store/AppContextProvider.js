@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
-import Notify from 'notifyjs';
 import { useState } from "react";
 import AppContext from "./app-context";
+import Notify from 'simple-notify'
+import 'simple-notify/dist/simple-notify.css'
 
 function AppContextProvider({children}){
 
-    const [showcart, setshowcart] = useState(false);
+  const [showcart, setshowcart] = useState(false);
   const [cartitem, setcartitem] = useState([]);
   const [showaddproduct, setshowaddproduct] = useState(false);
   const [products, setproducts] = useState({});
@@ -17,29 +18,40 @@ function AppContextProvider({children}){
 
     if(index===-1)
     {
-        new Notify('Product added to cart', {
-          body: name,
-          notifyShow: onNotifyShow
-      }).show();
+      new Notify({
+        text:  "Product Added to Cart",
+        status: "success",
+        effect: 'slide',
+        speed: 300,
+        showIcon: true,
+        showCloseButton: false,
+        autoclose: true,
+        position: 'x-center',
+
+      })
+      console.log("addtocart");
       const newcartitem = [...cartitem,{name:name,id:id,image:image,quentity:1}];
       setcartitem(newcartitem);
     }
     else
     {
-      new Notify('Product quentity incrase to cart', {
-          body: name,
-          notifyShow: onNotifyShow
-      }).show();
+      new Notify({
+        text:  "Product quentity Added to Cart",
+        status: "success",
+        effect: 'slide',
+        speed: 300,
+        showIcon: true,
+        showCloseButton: false,
+        autoclose: true,
+        position: 'x-center',
+
+      })
       const newcartitem = [...cartitem];
       newcartitem[index].quentity++;
       setcartitem(newcartitem);
     }
     
   }
-
-  function onNotifyShow() {
-    console.log('Notification shown!');
-}
 
   function addproduct(name){
 
